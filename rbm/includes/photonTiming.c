@@ -10,7 +10,6 @@ Author: Sravanthi Kota Venkata
 #include <math.h>
 
 #include "timingUtils.h"
-#include "../rbm.h"
 
 unsigned int* photonStartTiming()
 {
