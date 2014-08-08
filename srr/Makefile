@@ -1,5 +1,3 @@
-
-
 .SUFFIXES: .c .u
 CC= gcc
 CFLAGS  = -O2
@@ -27,7 +25,7 @@ medium: $(C_SRC)
 	./srr-medium
 
 large: $(C_SRC)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(MEDIUM) $(CFLAGS) -o srr-large
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LARGE) $(CFLAGS) -o srr-large
 	./srr-large
 
 
