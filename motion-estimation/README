@@ -1,12 +1,12 @@
-Make instructions:
-0. Make
-1. Make small=1
-2. Make medium=1
-3. Make large=1
-4. Make Clean
+Usage:
 
-Running instructions:
-./MotionEstimation
+make all (Runs small medim large benchmarks with cycle time)
+
+Individual dataset sizes can be run by using the commands:
+
+make small
+make medium
+make large
 
 Output:
 Motion Vectors
