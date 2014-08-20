@@ -16,6 +16,8 @@ In Makefiles -02 -lm is redundant because C_COMPILE has these and C_FLAGS does a
 Add LIBLINEAR to the bitbuck
 Make sure the "CYCLES ELAPSED number" makes sense for the benchmarks
 Structure the folders in a nice way
+Add COMPILE_G,COMPILE_PG flag to makefile
+Ponder if we can make a global makefile.common that kind of does everything(prob kind of hard to do)
 
 
 Marissa: Mondays-Wed 10:30  to 12am workings
