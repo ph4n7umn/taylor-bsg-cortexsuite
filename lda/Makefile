@@ -1,17 +1,18 @@
 .SUFFIXES: .c .u
+.PHONY: all small medium large clean
+
 CC= gcc
 CFLAGS  = -O2
 LDFLAGS = -lm
 
 
 
-INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
+INCLUDES = -I$(CURDIR) -I/home/shelbyt/Documents/benchmarks/common 
 COMPILE_C = $(CC) $(CFLAGS) -lm -O2 $(INCLUDES)
 COMMON_SRC := $(wildcard $(CURDIR)/*.c)
-C_SRC := $(wildcard $(CURDIR)/includes/*.c)
+C_SRC := $(wildcard /home/shelbyt/Documents/benchmarks/common/*.c)
 
 all: small medium large
-
 
 small: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(CFLAGS) -o lda-small
