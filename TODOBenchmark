@@ -1,0 +1,21 @@
+Stuff TODO
+
+Ask chetan about where timing analysis should be on motion estimation
+Fix the Readme for motion estimation
+Make the "includes" file "global" so we only have one include file instead of a ton of them
+See if it is useful to make ME and SRR access the same set of files
+In PART2 folder there is a new cody of LDA and MmotionEstimation. I have uploaded the old ME version, try and find out why we have a new one (think it was dataset size?) (Will be using the NEW lda implentation)
+Wonder if we need different directories for the datasets that we have?
+What kind of optimization should we use? Some of them originally had -03 but in sd-vbs we used -02 option so which to use?
+Perhaps change the name of functions and variables in some of the bechmarks, LDA has some dumb names for stuff. PCA has variables names that are just single lettter.
+Find out why run-large for LDA and stuff take pretty much no time to complete..?
+Add information that LDA only benchmarking "REF"
+Add information that PCA only running CORL Matrix
+Rename App.c files in SRR and Motion Estimation
+In Makefiles -02 -lm is redundant because C_COMPILE has these and C_FLAGS does as well
+Add LIBLINEAR to the bitbuck
+Make sure the "CYCLES ELAPSED number" makes sense for the benchmarks
+Structure the folders in a nice way
+
+
+Marissa: Mondays-Wed 10:30  to 12am workings
