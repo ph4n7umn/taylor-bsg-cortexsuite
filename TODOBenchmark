@@ -18,6 +18,7 @@ Make sure the "CYCLES ELAPSED number" makes sense for the benchmarks
 Structure the folders in a nice way
 Add COMPILE_G,COMPILE_PG flag to makefile
 Ponder if we can make a global makefile.common that kind of does everything(prob kind of hard to do)
+For results, perhaps a results folder similar to the way LDA does it?
 
 
 Marissa: Mondays-Wed 10:30  to 12am workings
