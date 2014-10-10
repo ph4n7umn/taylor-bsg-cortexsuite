@@ -11,7 +11,7 @@ large: compile
 	./sphinx large/audio.raw language_model/HUB4/ 2> /dev/null
 
 compile:
-	gcc main.c includes/*.c pocketsphinx/*.c sphinxbase/fe/*.c sphinxbase/feat/*.c sphinxbase/lm/*.c sphinxbase/util/*.c -o sphinx -lm -O2
+	gcc main.c includes/*.c pocketsphinx/*.c sphinxbase/fe/*.c sphinxbase/feat/*.c sphinxbase/lm/*.c sphinxbase/util/*.c -o sphinx -O2 -lm
 
 clean:
 	-rm out.txt sphinx
