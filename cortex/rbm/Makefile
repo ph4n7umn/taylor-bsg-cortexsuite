@@ -9,7 +9,7 @@ C_SRC := $(wildcard $(CURDIR)/includes/*.c)
 all: small medium large
 
 small: $(C_SRC)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) -DUSERS=10 -DTEST_USERS=10 -DMOVIES=3 -DLOOPS=20 -o rbm-small
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) -DUSERS=10 -DTEST_USERS=10 -DMOVIES=10 -DLOOPS=20 -o rbm-small
 	-./rbm-small
 
 
