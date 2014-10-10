@@ -3,13 +3,13 @@ CC= gcc
 CFLAGS  = 
 LDFLAGS = 
 
-
-
-INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
+COMMONF = ./includes
+INCLUDES = -I$(COMMONF) -I$(CURDIR)
+#INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
 #INCLUDES = -I/home/shelbyt/Documents/benchmarks/motion-estimation/includes -I$(CURDIR)
 COMPILE_C = $(CC) $(CFLAGS) -lm -O2 $(INCLUDES)
 COMMON_SRC := $(wildcard $(CURDIR)/*.c)
-C_SRC := $(wildcard $(CURDIR)/includes/*.c)
+C_SRC := $(wildcard $(COMMONF)/*.c)
 SMALL = 
 MEDIUM =
 LARGE =
