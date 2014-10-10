@@ -20,26 +20,21 @@ run-all: run-small run-medium run-large
 
 small: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(SMALL) $(CFLAGS) -o me-small $(LDFLAGS)
-	#./me-small
 
 medium: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(MEDIUM) $(CFLAGS) -o me-medium $(LDFLAGS)
-	#./me-medium
 
 large: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LARGE) $(CFLAGS) -o me-large $(LDFLAGS)
-	#./me-large
 
 run-small:
-	-./me-small
+	-./me-small 2>&1 | tee ../results/me.small
 
 run-medium:
-	-./me-medium
+	-./me-medium 2>&1 | tee ../results/me.medium
 
 run-large:
-	-./me-large
-
-
+	-./me-large 2>&1 | tee ../results/me.large
 
 clean:
 	-rm -f *.o me-small me-medium me-large

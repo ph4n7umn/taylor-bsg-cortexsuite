@@ -21,13 +21,13 @@ large: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) -DUSERS=100 -DTEST_USERS=100 -DMOVIES=100 -DLOOPS=200 -o rbm-large $(LDFLAGS)
 
 run-small:
-	-./rbm-small
+	-./rbm-small 2>&1 | tee ../results/rbm.small
 
 run-medium:
-	-./rbm-medium
+	-./rbm-medium 2>&1 | tee ../results/rbm.medium
 
 run-large:
-	-./rbm-large
+	-./rbm-large 2>&1 | tee ../results/rbm.large
 
 clean:
 	-rm rbm-small rbm-medium rbm-large out.txt

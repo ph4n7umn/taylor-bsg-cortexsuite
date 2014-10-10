@@ -31,13 +31,13 @@ blas/blas.a: blas/*.c blas/*.h
 	make -C blas OPTFLAGS='$(CFLAGS)' CC='$(CC)'
 
 run-small:
-	-./liblinear-tsmall data/100M/crime_scale
+	-./liblinear-tsmall data/100M/crime_scale 2>&1 | tee ../results/libl.small
 
 run-medium:
-	-./liblinear-tmedium data/10B/epsilon
+	-./liblinear-tmedium data/10B/epsilon 2>&1 | tee ../results/libl.medium
 
 run-large:
-	-./liblinear-tlarge data/100B/kdda
+	-./liblinear-tlarge data/100B/kdda 2>&1 | tee ../results/libl.large
 
 
 clean:
