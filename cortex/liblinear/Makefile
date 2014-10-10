@@ -13,23 +13,33 @@ C_SRC := $(wildcard $(CURDIR)/includes/*.c)
 
 #LIBS = -lblas
 
-all: train predict
+compile: small medium large
+
+run-all: run-small run-medium run-large
+
 
 small: $(C_SRC) $(LIBS)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o train-small $(LDFLAGS)
-	./train-small data/100M/crime_scale
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o liblinear-tsmall $(LDFLAGS)
 
 medium: $(C_SRC) $(LIBS)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o train-medium $(LDFLAGS)
-	./train-medium data/10B/epsilon
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o liblinear-tmedium $(LDFLAGS)
 
 large: $(C_SRC) $(LIBS)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o train-large $(LDFLAGS)
-	./train-large data/100B/kdda
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LIBS) $(CFLAGS) -o liblinear-tlarge $(LDFLAGS)
 
 blas/blas.a: blas/*.c blas/*.h
 	make -C blas OPTFLAGS='$(CFLAGS)' CC='$(CC)'
 
+run-small:
+	-./liblinear-tsmall data/100M/crime_scale
+
+run-medium:
+	-./liblinear-tmedium data/10B/epsilon
+
+run-large:
+	-./liblinear-tlarge data/100B/kdda
+
+
 clean:
 	make -C blas clean
-	rm -f *~ tron.o linear.o train predict liblinear.so.$(SHVER) train-small train-medium train-large
+	-rm -f *~ tron.o linear.o train liblinear.so.$(SHVER) liblinear-tsmall liblinear-tmedium liblinear-tlarge

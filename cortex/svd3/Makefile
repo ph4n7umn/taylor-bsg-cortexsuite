@@ -9,26 +9,20 @@ INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
 COMPILE_C = $(CC) $(CFLAGS) -O2 $(INCLUDES)
 COMMON_SRC := $(wildcard $(CURDIR)/*.c)
 C_SRC := $(wildcard $(CURDIR)/includes/*.c)
-SMALL = 
-MEDIUM =
-LARGE =
-
-all: small medium large
 
 compile:
 	gcc -lm main.c common/*.c $(C_SRC) svd.c svd2.c sortSVDResult.c $(LDFLAGS)
 
-small:
-	gcc -lm main.c common/*.c $(C_SRC) svd.c svd2.c sortSVDResult.c $(LDFLAGS)
-	./a.out small.txt
+run-all: run-small run-medium run-large
 
-medium:
-	gcc -lm main.c common/*.c $(C_SRC) svd.c svd2.c sortSVDResult.c $(LDFLAGS)
-	./a.out med.txt
+run-small:
+	-./a.out small.txt
 
-large:
-	gcc -lm main.c common/*.c $(C_SRC) svd.c svd2.c sortSVDResult.c $(LDFLAGS)
-	./a.out large.txt
+run-medium:
+	-./a.out med.txt
+
+run-large:
+	-./a.out large.txt
 
 clean:
 	-rm a.out

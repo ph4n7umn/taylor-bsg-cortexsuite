@@ -10,27 +10,33 @@ LDFLAGS = -lm
 
 
 
-#INCLUDES = -I$(CURDIR) -I/home/shelbyt/Documents/benchmarks/common 
 INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
 COMPILE_C = $(CC) $(CFLAGS) -O2 $(INCLUDES)
 COMMON_SRC := $(wildcard $(CURDIR)/*.c)
 C_SRC := $(wildcard $(CURDIR)/includes/*.c)
 
 
-all: small medium large
+compile: small medium large
+
+run-all: run-small run-medium run-large
 
 small: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(CFLAGS) -o lda-small $(LDFLAGS)
-	./lda-small est .1 3 settings.txt small/small_data.dat random small/results
 
 medium: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(CFLAGS) -o lda-medium $(LDFLAGS)
-	./lda-medium est .1 3 settings.txt medium/medium_data.dat random medium/results
 
 large: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(CFLAGS) -o lda-large $(LDFLAGS)
-	./lda-large est .1 3 settings.txt large/large_data.dat random large/results
 
+run-small:
+	-./lda-small est .1 3 settings.txt small/small_data.dat random small/result
+
+run-medium:
+	-./lda-medium est .1 3 settings.txt medium/medium_data.dat random medium/results
+
+run-large:
+	-./lda-large est .1 3 settings.txt large/large_data.dat random large/results
 
 clean:
 	-rm -f *.o lda-small lda-medium lda-large

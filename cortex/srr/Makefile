@@ -13,21 +13,27 @@ SMALL = -DSYNTHETIC1
 MEDIUM = -DALPACA
 LARGE = -DBOOKCASE
 
-all: small medium large
+compile: small medium large
 
+run-all: run-small run-medium run-large
 
 small: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(SMALL) $(CFLAGS) -o srr-small $(LDFLAGS)
-	./srr-small
 
 medium: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(MEDIUM) $(CFLAGS) -o srr-medium $(LDFLAGS)
-	./srr-medium
 
 large: $(C_SRC)
 	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LARGE) $(CFLAGS) -o srr-large $(LDFLAGS)
-	./srr-large
 
+run-small:
+	-./srr-small
+
+run-medium:
+	-./srr-medium
+
+run-large:
+	-./srr-large
 
 clean:
-	-rm -f *.o srr-small srr-medium srr-large
+	-rm -f srr-small srr-medium srr-large
