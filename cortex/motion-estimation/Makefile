@@ -6,7 +6,7 @@ LDFLAGS = -lm
 
 
 INCLUDES = -I$(CURDIR)/includes -I$(CURDIR)
-COMPILE_C = $(CC) $(CFLAGS) -lm -O2 $(INCLUDES)
+COMPILE_C = $(CC) $(CFLAGS) -O2 $(INCLUDES)
 COMMON_SRC := $(wildcard $(CURDIR)/*.c)
 C_SRC := $(wildcard $(CURDIR)/includes/*.c)
 SMALL = -DSYNTHETIC1
@@ -17,15 +17,15 @@ all: small medium large
 
 
 small: $(C_SRC)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(SMALL) $(CFLAGS) -o me-small
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(SMALL) $(CFLAGS) -o me-small $(LDFLAGS)
 	./me-small
 
 medium: $(C_SRC)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(MEDIUM) $(CFLAGS) -o me-medium
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(MEDIUM) $(CFLAGS) -o me-medium $(LDFLAGS)
 	./me-medium
 
 large: $(C_SRC)
-	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LARGE) $(CFLAGS) -o me-large
+	$(COMPILE_C) $(COMMON_SRC) $(C_SRC) $(LARGE) $(CFLAGS) -o me-large $(LDFLAGS)
 	./me-large
 
 
