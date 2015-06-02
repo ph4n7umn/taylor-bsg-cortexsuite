@@ -1,12 +1,17 @@
-RUN LARGE:
+Instructions:
 
-./pca large.data 5000 1059 R
+Step 1: Compile
 
-RUN MEDIUM:
+> make compile
 
-/pca dater3 722 800 R
+Step 2: Running
 
-SMALL:
-./pca dater 1593 256 R
+> make run-small
+> make run-medium
+> make run-large
 
+Dataset Sources:
 
+PCA Small: http://archive.ics.uci.edu/ml/datasets/Semeion+Handwritten+Digit
+PCA Medium: http://archive.ics.uci.edu/ml/datasets/Statlog+(Landsat+Satellite)
+PCA Large: http://archive.ics.uci.edu/ml/datasets/Gisette
