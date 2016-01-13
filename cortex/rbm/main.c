@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "rbm.h"
 
@@ -26,8 +27,6 @@ int trainingData[USERS][NUM_VISIBLE];
 
 int testActuals[TEST_USERS][MOVIES];
 int testPredictions[TEST_USERS][MOVIES];
-
-
 
 
 
@@ -155,7 +154,7 @@ void train()
 
 		// Activate hidden units
 		int hidden[NUM_HIDDEN + 1];
-		//activateHiddenUnits(data, 1, hidden);
+		activateHiddenUnits(data, 1, hidden);
 
 		// Get positive association
 		int pos[NUM_VISIBLE + 1][NUM_HIDDEN + 1];
@@ -174,7 +173,7 @@ void train()
 
 		// Activate visible units
 		int visible[NUM_VISIBLE + 1];
-		//activateVisibleUnits(hidden, 1, visible);
+		activateVisibleUnits(hidden, 1, visible);
 
 		// Get negative association
 		int neg[NUM_VISIBLE + 1][NUM_HIDDEN + 1];
@@ -204,7 +203,9 @@ void processLine(int target[], FILE * stream, int optActual[])
 	for (j = 0; j < NUM_VISIBLE; j += K)
 	{
 		int rating = 0;
-		fscanf(stream, "%d", &rating);
+		if(fscanf(stream, "%d", &rating) != 1 ) {
+      printf("ERROR: Failed to read stream");
+    }
 		if (optActual != NULL)
 			optActual[j / K] = rating;
 
@@ -236,7 +237,6 @@ int main(int argc, char *argv[])
 
 	fclose(trainingFile);
 
-  start = photonStartTiming();
 
 	// -------- Training ---------
 
@@ -312,9 +312,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(testFile);
-  stop = photonEndTiming();
-
-
 	// -------- Writing result ---------
 
 
@@ -326,57 +323,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(outputFile);
-
-	// -------- Analyzing result ---------
-
-	/*
-	int totalPredictions = 0;
-	int totalDifference = 0;
-
-	for (i = 0; i < TEST_USERS; i++)
-	{
-		for (j = 0; j < MOVIES; j++)
-		{
-			if (testActuals[i][j] > 0)
-			{
-				totalPredictions++;
-				totalDifference += abs(testActuals[i][j] - testPredictions[i][j]);
-			}
-		}
-	}
-
-	if (DEBUG)
-		printf("Avg difference: %f\n", (double) totalDifference / totalPredictions);
-
-	 */
-
-	/*
-	 * Verification
-	 */
-#ifdef CHECK
-	FILE *expected = fopen("expected_C.txt", "rt");
-	FILE *result = fopen("result.txt", "rt");
-
-	char c;
-	int bad = 0;
-	while ((c = fgetc(expected)) != EOF)
-	{
-		if (fgetc(result) != c)
-		{
-			printf("Verification\t\t- Failed\n");
-			bad = 1;
-			break;
-		}
-	}
-
-	if (bad == 0)
-	    printf("Verification\t\t- Successful\n");
-	    
-	    
-#endif
-
-  elapsed = photonReportTiming(start,stop);
-  photonPrintTiming(elapsed);
 
 	return 0;
 
