@@ -1,12 +1,9 @@
-CC=gcc
-CFLAGS=-I.
-SOURCES= main.c mnist_parse.c
-DEPS= mnist_parse.h
-OBJECTS=main.o mnist_parse.o
-EXECUTABLE=main
-all:
-	$(CC) -o $(EXECUTABLE) $(SOURCES)
+
+compile:
+	gcc main.c vector.c Preferences.c NeuralNetwork.c MNistDoc.c -O2 -o main -lm -w -g 
+
 run:
 	./main
 clean:
-	rm $(EXECUTABLE)
+	-rm main.o main
+
