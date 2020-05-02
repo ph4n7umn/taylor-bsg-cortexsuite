@@ -167,8 +167,6 @@ void TRON_tron_l2r_lr(struct tagTRON_l2r_lr *this, double *w)
 int TRON_trcg_l2r_lr(struct tagTRON_l2r_lr *this, double delta, double *g, double *s, double *r)
 {
 	struct tagl2r_lr_fun *fun_obj = this->fun_obj;
-	double eps = this->eps;
-	int max_iter = this->max_iter;
 
 	int i, inc = 1;
 	int n = fun_obj->get_nr_variable(fun_obj);
@@ -403,8 +401,6 @@ void TRON_tron_l2r_l2_svc(struct tagTRON_l2r_l2_svc *this, double *w)
 int TRON_trcg_l2r_l2_svc(struct tagTRON_l2r_l2_svc *this, double delta, double *g, double *s, double *r)
 {
 	struct tagl2r_l2_svc_fun *fun_obj = this->fun_obj;
-	double eps = this->eps;
-	int max_iter = this->max_iter;
 
 	int i, inc = 1;
 	int n = fun_obj->get_nr_variable(fun_obj);
@@ -638,8 +634,6 @@ void TRON_tron_l2r_l2_svr(struct tagTRON_l2r_l2_svr *this, double *w)
 int TRON_trcg_l2r_l2_svr(struct tagTRON_l2r_l2_svr *this, double delta, double *g, double *s, double *r)
 {
 	struct tagl2r_l2_svr_fun *fun_obj = this->fun_obj;
-	double eps = this->eps;
-	int max_iter = this->max_iter;
 
 	int i, inc = 1;
 	int n = fun_obj->get_nr_variable(fun_obj);

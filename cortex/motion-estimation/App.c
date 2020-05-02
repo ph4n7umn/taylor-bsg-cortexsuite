@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "photonTiming.h"
 //#include <conio.h>
 
 #ifdef NEW_EMILLY
