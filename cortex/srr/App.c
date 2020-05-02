@@ -4,6 +4,7 @@
 #include "SRREngine.h"
 #include <string.h>
 
+#include "photonTiming.h"
 
 double*** LR;
 BITMAPFILEHEADER hdr;
