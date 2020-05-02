@@ -3,6 +3,9 @@
 #include <math.h>
 #include <float.h>
 #include <string.h>
+#include "photonTiming.h"
+
+int *k_means(double **data, int n, int m, int k, double t, double **centroids);
 
 double SIGMA = 0.1;
 double DIV_FACTOR = 500;
