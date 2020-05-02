@@ -56,9 +56,11 @@
     );\
 }
 
-//#define metro_magic_timing_report(cycleLo, cycleHi) {\
-//    asm volatile( "nop\n\t");\
-//}
+/*
+#define metro_magic_timing_report(cycleLo, cycleHi) {\
+    asm volatile( "nop\n\t");\
+}
+*/
 
 #endif
 
