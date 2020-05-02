@@ -1174,7 +1174,7 @@ static void solve_l2r_l1l2_svr(
 	double d, G, H;
 	double Gmax_old = INF;
 	double Gmax_new, Gnorm1_new;
-	double Gnorm1_init;
+	double Gnorm1_init = NAN; // MBT added to fix compiler warning
 	double *beta = (double*)malloc(l*sizeof(double));
 	double *QD = (double*)malloc(l*sizeof(double));
 	double *y = prob->y;
@@ -1626,7 +1626,7 @@ static void solve_l1r_l2_svc(
 	double d, G_loss, G, H;
 	double Gmax_old = INF;
 	double Gmax_new, Gnorm1_new;
-	double Gnorm1_init;
+	double Gnorm1_init = NAN; // fix uninit warning MBT
 	double d_old, d_diff;
 	double loss_old, loss_new;
 	double appxcond, cond;

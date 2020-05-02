@@ -1,5 +1,5 @@
 compile:
-	gcc main.c includes/*.c pocketsphinx/*.c sphinxbase/fe/*.c sphinxbase/feat/*.c sphinxbase/lm/*.c sphinxbase/util/*.c -o sphinx -O2 -lm
+	gcc -I includes main.c includes/*.c pocketsphinx/*.c sphinxbase/fe/*.c sphinxbase/feat/*.c sphinxbase/lm/*.c sphinxbase/util/*.c -o sphinx -O2 -lm
 
 run-all: run-small run-medium run-large
 
